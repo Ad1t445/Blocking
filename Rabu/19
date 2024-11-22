@@ -1,0 +1,29 @@
+import turtle
+# Fungsi untuk menggambar pohon Fibonacci
+def fibonacci_tree(t, branch_len, angle, level):
+    if level == 0:
+        return
+    else:
+        # Gambar cabang pertama
+        t.forward(branch_len)
+        t.left(angle)
+        fibonacci_tree(t, branch_len * 0.7, angle, level - 1)  # Rekursi cabang kiri
+        
+        # Kembali ke posisi awal
+        t.right(2 * angle)
+        fibonacci_tree(t, branch_len * 0.7, angle, level - 1)  # Rekursi cabang kanan
+        
+        # Kembali ke posisi semula
+        t.left(angle)
+        t.backward(branch_len)
+# Setup turtle
+turtle.speed(0)
+turtle.left(90)  # Arahkan turtle ke atas
+turtle.color("brown")  # Warna batang
+turtle.bgcolor("white")  # Latar belakang putih
+turtle.penup()
+turtle.setpos(0, -200)  # Posisi awal di bawah
+turtle.pendown()
+fibonacci_tree(turtle, 100, 30, 7)  # Gambar pohon dengan panjang cabang 100, sudut 30 derajat, dan level 7
+# Menyelesaikan program
+turtle.done()
