@@ -1,0 +1,32 @@
+import turtle
+
+# Inisialisasi layar
+screen = turtle.Screen()
+screen.title("Gambar Trapesium")
+screen.bgcolor("white")
+
+# Inisialisasi turtle
+pen = turtle.Turtle()
+pen.pensize(3)
+pen.speed(3)
+
+# Fungsi untuk menggambar trapesium
+def gambar_trapesium():
+    pen.penup()
+    pen.goto(-100, -50)  # Titik awal
+    pen.pendown()
+    pen.forward(200)     # Garis bawah
+    pen.left(120)
+    pen.forward(100)     # Sisi miring kiri
+    pen.left(60)
+    pen.forward(100)     # Garis atas
+    pen.left(60)
+    pen.forward(100)     # Sisi miring kanan
+    pen.left(120)
+
+# Gambar trapesium
+gambar_trapesium()
+
+# Selesai
+pen.hideturtle()
+screen.mainloop()
