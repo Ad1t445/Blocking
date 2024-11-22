@@ -1,0 +1,39 @@
+import turtle
+# Inisialisasi turtle
+pen = turtle.Turtle()
+pen.color("orange")
+pen.pensize(2)
+pen.speed(5)
+# Fungsi untuk menggambar garis putus-putus
+def garis_putus_putus(length):
+    for _ in range(length // 10):
+        pen.pendown()
+        pen.forward(5)
+        pen.penup()
+        pen.forward(5)
+# Gambar belah ketupat
+pen.fillcolor("orange")
+pen.begin_fill()
+pen.penup()
+pen.goto(0, 100)  # Titik atas
+pen.pendown()
+pen.goto(100, 0)  # Titik kanan
+pen.goto(0, -100) # Titik bawah
+pen.goto(-100, 0) # Titik kiri
+pen.goto(0, 100)  # Kembali ke titik atas
+pen.end_fill()
+# Gambar garis diagonal putus-putus
+pen.color("black")
+pen.penup()
+pen.goto(0, 100)
+pen.setheading(-90)
+pen.pendown()
+garis_putus_putus(200)  # Diagonal vertikal
+pen.penup()
+pen.goto(-100, 0)
+pen.setheading(0)
+pen.pendown()
+garis_putus_putus(200)  # Diagonal horizontal
+# Selesai
+pen.hideturtle()
+turtle.done()
