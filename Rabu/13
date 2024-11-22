@@ -1,0 +1,23 @@
+import turtle
+
+# Dimensi persegi panjang
+panjang = 200
+lebar = 100
+
+# Setup turtle
+turtle.speed(3)
+turtle.color("red")  # Warna garis merah
+turtle.fillcolor("red")  # Warna isi merah
+turtle.bgcolor("white")  # Latar belakang putih
+
+# Menggambar persegi panjang
+turtle.begin_fill()
+for _ in range(2):
+    turtle.forward(panjang)
+    turtle.left(90)
+    turtle.forward(lebar)
+    turtle.left(90)
+turtle.end_fill()
+
+# Menyelesaikan program
+turtle.done()
