@@ -1,0 +1,26 @@
+import turtle
+# Dimensi jajar genjang
+panjang = 200
+tinggi = 100
+kemiringan = 50
+# Setup turtle
+turtle.speed(3)
+turtle.color("blue")  # Warna garis biru
+turtle.fillcolor("blue")  # Warna isi biru
+turtle.bgcolor("white")  # Latar belakang putih
+# Menggambar jajar genjang
+turtle.begin_fill()
+# Sisi bawah
+turtle.forward(panjang)
+# Sisi miring kanan
+turtle.left(120)
+turtle.forward(kemiringan)
+# Sisi atas
+turtle.left(60)
+turtle.forward(panjang)
+# Sisi miring kiri
+turtle.left(120)
+turtle.forward(kemiringan)
+turtle.end_fill()
+# Menyelesaikan program
+turtle.done()
