@@ -1,0 +1,46 @@
+from tkinter import *
+from tkinter import ttk
+
+# Function to calculate the parking fee
+def calculate_fee():
+    try:
+        # Get the input values
+        waktu_masuk = waktu_masuk_entry.get()
+        waktu_keluar = waktu_keluar_entry.get()
+        hours_parked = float(waktu_keluar) - float(waktu_masuk)
+        rate_per_hour = 5000
+        biaya = hours_parked * rate_per_hour
+        biaya_entry.delete(0, END)  # Clear any previous result
+        biaya_entry.insert(0, str(biaya))  # Insert the calculated fee
+        
+    except ValueError:
+        # If there's an invalid input, show an error
+        biaya_entry.delete(0, END)
+        biaya_entry.insert(0, "Input invalid!")
+root = Tk()
+root.title("Aplikasi Parkir Kelompok 6")
+title_label = Label(root, text="Aplikasi Parkir Kelompok 6", font=("Arial", 16))
+title_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
+no_pol_label = Label(root, text="Cari NoPol")
+no_pol_label.grid(row=1, column=0, padx=10, pady=5)
+no_pol_entry = Entry(root)
+no_pol_entry.grid(row=1, column=1, padx=10, pady=5)
+plat_polisi_label = Label(root, text="No Plat Polisi")
+plat_polisi_label.grid(row=2, column=0, padx=10, pady=5)
+plat_polisi_entry = Entry(root)
+plat_polisi_entry.grid(row=2, column=1, padx=10, pady=5)
+waktu_masuk_label = Label(root, text="Waktu Masuk (Jam)")
+waktu_masuk_label.grid(row=3, column=0, padx=10, pady=5)
+waktu_masuk_entry = Entry(root)
+waktu_masuk_entry.grid(row=3, column=1, padx=10, pady=5)
+waktu_keluar_label = Label(root, text="Waktu Keluar (Jam)")
+waktu_keluar_label.grid(row=4, column=0, padx=10, pady=5)
+waktu_keluar_entry = Entry(root)
+waktu_keluar_entry.grid(row=4, column=1, padx=10, pady=5)
+biaya_label = Label(root, text="Biaya")
+biaya_label.grid(row=5, column=0, padx=10, pady=5)
+biaya_entry = Entry(root)
+biaya_entry.grid(row=5, column=1, padx=10, pady=5)
+calculate_button = Button(root, text="Hitung Biaya", command=calculate_fee)
+calculate_button.grid(row=6, column=0, columnspan=2, pady=10)
+root.mainloop()
