@@ -1,0 +1,27 @@
+import turtle
+
+# Inisialisasi turtle
+pen = turtle.Turtle()
+pen.color("green")
+pen.fillcolor("green")
+pen.pensize(2)
+pen.speed(5)
+
+# Gambar trapesium
+pen.begin_fill()
+pen.penup()
+pen.goto(-100, -50)
+pen.pendown()
+pen.forward(200)     # Garis bawah
+pen.left(120)
+pen.forward(100)     # Sisi miring kiri
+pen.left(60)
+pen.forward(100)     # Garis atas
+pen.left(60)
+pen.forward(100)     # Sisi miring kanan
+pen.left(120)
+pen.end_fill()
+
+# Selesai
+pen.hideturtle()
+turtle.done()
