@@ -1,0 +1,28 @@
+import turtle as t
+# Setup turtle
+t.speed(0)
+t.setup(1000, 500)  # Mengatur ukuran layar yang lebih kecil
+t.bgcolor("black")
+t.width(3)
+# Fungsi untuk menggambar persegi panjang dengan warna tertentu
+def draw_rectangle(color, width, height, position):
+    t.penup()
+    t.goto(position)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(2):  # Membuat persegi panjang
+        t.forward(width)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+    t.end_fill()
+# Menggambar bendera Indonesia
+# Bagian Merah (di atas)
+draw_rectangle("red", 1000, 250, (-500, 125))
+# Bagian Putih (di bawah)
+draw_rectangle("white", 1000, 250, (-500, -125))
+# Sembunyikan turtle setelah menggambar
+t.hideturtle()
+# Selesai menggambar
+t.done()
