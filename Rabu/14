@@ -1,0 +1,20 @@
+import turtle
+
+# Dimensi segitiga
+sisi = 200
+
+# Setup turtle
+turtle.speed(3)
+turtle.color("yellow")  # Warna garis kuning
+turtle.fillcolor("yellow")  # Warna isi kuning
+turtle.bgcolor("white")  # Latar belakang putih
+
+# Menggambar segitiga
+turtle.begin_fill()
+for _ in range(3):
+    turtle.forward(sisi)
+    turtle.left(120)
+turtle.end_fill()
+
+# Menyelesaikan program
+turtle.done()
