@@ -1,0 +1,75 @@
+import turtle
+# Setup Turtle
+turtle.speed(5)
+turtle.bgcolor("white")
+# Fungsi untuk menggambar persegi panjang
+def draw_rectangle(color, width, height, x, y):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.color(color)
+    for _ in range(2):
+        turtle.forward(width)
+        turtle.left(90)
+        turtle.forward(height)
+        turtle.left(90)
+    turtle.end_fill()
+# Fungsi untuk menggambar lingkaran
+def draw_circle(radius, color, x, y):
+    turtle.penup()
+    turtle.goto(x, y - radius)  # Posisi lingkaran
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.color(color)
+    turtle.circle(radius)
+    turtle.end_fill()
+# Fungsi untuk menggambar bintang
+def draw_star(size, color, x, y):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.color(color)
+    for _ in range(5):
+        turtle.forward(size)
+        turtle.right(144)
+    turtle.end_fill()
+# Fungsi untuk menggambar bulan sabit
+def draw_crescent(radius, thickness, color, x, y):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.color(color)
+    turtle.circle(radius, 180)  # Gambar setengah lingkaran (bulan sabit)
+    turtle.end_fill()
+        # Menggambar lingkaran kecil untuk menghapus bagian tengah bulan sabit
+    turtle.penup()
+    turtle.goto(x + thickness, y)
+    turtle.pendown()
+    turtle.color("white")
+    turtle.begin_fill()
+    turtle.circle(radius - thickness, 180)
+    turtle.end_fill()
+# Gambar bendera dengan pola merah-hitam
+# Gambar bagian merah dan hitam
+draw_rectangle("red", 400, 50, -200, 100)
+draw_rectangle("black", 400, 50, -200, 50)
+draw_rectangle("red", 400, 50, -200, 0)
+draw_rectangle("black", 400, 50, -200, -50)
+# Gambar bintang di sisi kiri bendera (posisi tidak teratur)
+star_size = 10
+bintang_posisi = [
+    (-180, 70), (-160, 40), (-140, 60), # Baris 1 (6 bintang)
+    (-160, 10), (-140, 30), (-120, 50), 
+    (-100, 40), (-80, 20), (-60, 60),  # Baris 2 (3 bintang)
+    (-80, -20), (-60, -10), (-40, 0)   # Baris 3 (9 bintang)
+]
+for pos in bintang_posisi:
+    draw_star(star_size, "white", pos[0], pos[1])
+# Gambar bulan sabit di tengah bendera
+draw_crescent(40, 5, "white", 0, 20)
+# Menyelesaikan gambar
+turtle.hideturtle()
+turtle.done()
