@@ -1,0 +1,114 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox
+
+# Function to save data
+def simpan():
+    nama_lengkap = nama_lengkap_entry.get()
+    tanggal_lahir = tanggal_lahir_entry.get()
+    asal_sekolah = asal_sekolah_entry.get()
+    nisn = nisn_entry.get()
+    nama_ayah = nama_ayah_entry.get()
+    nama_ibu = nama_ibu_entry.get()
+    nomor_telepon = nomor_telepon_entry.get()
+    alamat = alamat_entry.get("1.0", tk.END)
+
+    # Check if all fields are filled
+    if not nama_lengkap or not tanggal_lahir or not asal_sekolah or not nisn or not nama_ayah or not nama_ibu or not nomor_telepon or not alamat:
+        messagebox.showerror("Error", "Semua field harus diisi")
+        return
+
+    # Validate NISN and nomor telepon to be numbers
+    try:
+        int(nisn)
+        int(nomor_telepon)
+    except ValueError:
+        messagebox.showerror("Error", "NISN dan Nomor Telepon harus berupa angka")
+        return
+
+    # Simpan data ke database atau file
+    # For now, we are simulating this with a print statement.
+    # You can implement saving to a database or file here.
+    print("Data siswa berhasil disimpan:")
+    print(f"Nama Lengkap: {nama_lengkap}")
+    print(f"Tanggal Lahir: {tanggal_lahir}")
+    print(f"Asal Sekolah: {asal_sekolah}")
+    print(f"NISN: {nisn}")
+    print(f"Nama Ayah: {nama_ayah}")
+    print(f"Nama Ibu: {nama_ibu}")
+    print(f"Nomor Telepon: {nomor_telepon}")
+    print(f"Alamat: {alamat}")
+
+    messagebox.showinfo("Informasi", "Data siswa berhasil disimpan")
+
+    # Bersihkan field
+    nama_lengkap_entry.delete(0, tk.END)
+    tanggal_lahir_entry.delete(0, tk.END)
+    asal_sekolah_entry.delete(0, tk.END)
+    nisn_entry.delete(0, tk.END)
+    nama_ayah_entry.delete(0, tk.END)
+    nama_ibu_entry.delete(0, tk.END)
+    nomor_telepon_entry.delete(0, tk.END)
+    alamat_entry.delete("1.0", tk.END)
+
+# Function to delete data (simulate this with a message)
+def hapus():
+    # Hapus data dari database atau file
+    # For now, we'll simulate this.
+    print("Data siswa berhasil dihapus")
+    messagebox.showinfo("Informasi", "Data siswa berhasil dihapus")
+
+# Membuat jendela utama
+root = tk.Tk()
+root.title("Data Siswa Baru")
+
+# Label dan Entry for all the fields
+nama_lengkap_label = tk.Label(root, text="Nama Lengkap:")
+nama_lengkap_label.grid(row=0, column=0, padx=10, pady=5)
+nama_lengkap_entry = tk.Entry(root)
+nama_lengkap_entry.grid(row=0, column=1, padx=10, pady=5)
+
+tanggal_lahir_label = tk.Label(root, text="Tanggal Lahir:")
+tanggal_lahir_label.grid(row=1, column=0, padx=10, pady=5)
+tanggal_lahir_entry = tk.Entry(root)
+tanggal_lahir_entry.grid(row=1, column=1, padx=10, pady=5)
+
+asal_sekolah_label = tk.Label(root, text="Asal Sekolah:")
+asal_sekolah_label.grid(row=2, column=0, padx=10, pady=5)
+asal_sekolah_entry = tk.Entry(root)
+asal_sekolah_entry.grid(row=2, column=1, padx=10, pady=5)
+
+nisn_label = tk.Label(root, text="NISN:")
+nisn_label.grid(row=3, column=0, padx=10, pady=5)
+nisn_entry = tk.Entry(root)
+nisn_entry.grid(row=3, column=1, padx=10, pady=5)
+
+nama_ayah_label = tk.Label(root, text="Nama Ayah:")
+nama_ayah_label.grid(row=4, column=0, padx=10, pady=5)
+nama_ayah_entry = tk.Entry(root)
+nama_ayah_entry.grid(row=4, column=1, padx=10, pady=5)
+
+nama_ibu_label = tk.Label(root, text="Nama Ibu:")
+nama_ibu_label.grid(row=5, column=0, padx=10, pady=5)
+nama_ibu_entry = tk.Entry(root)
+nama_ibu_entry.grid(row=5, column=1, padx=10, pady=5)
+
+nomor_telepon_label = tk.Label(root, text="Nomor Telepon:")
+nomor_telepon_label.grid(row=6, column=0, padx=10, pady=5)
+nomor_telepon_entry = tk.Entry(root)
+nomor_telepon_entry.grid(row=6, column=1, padx=10, pady=5)
+
+alamat_label = tk.Label(root, text="Alamat:")
+alamat_label.grid(row=7, column=0, padx=10, pady=5)
+alamat_entry = tk.Text(root, height=4, width=30)
+alamat_entry.grid(row=7, column=1, padx=10, pady=5)
+
+# Buttons for saving and deleting
+simpan_button = tk.Button(root, text="Simpan", command=simpan)
+simpan_button.grid(row=8, column=0, padx=10, pady=10)
+
+hapus_button = tk.Button(root, text="Hapus", command=hapus)
+hapus_button.grid(row=8, column=1, padx=10, pady=10)
+
+# Run the application
+root.mainloop()
