@@ -1,0 +1,20 @@
+import turtle
+
+# Dimensi segitiga (panjang sisi)
+sisi = 200  # Panjang sisi segitiga
+
+# Setup turtle
+turtle.speed(3)
+turtle.color("green")  # Warna garis
+turtle.fillcolor("lightgreen")  # Warna isi
+turtle.bgcolor("white")  # Latar belakang
+
+# Menggambar segitiga
+turtle.begin_fill()
+for _ in range(3):  # Segitiga memiliki 3 sisi
+    turtle.forward(sisi)
+    turtle.left(120)  # Sudut segitiga sama sisi adalah 120 derajat
+turtle.end_fill()
+
+# Menyelesaikan program
+turtle.done()
