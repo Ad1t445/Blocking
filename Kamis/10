@@ -1,0 +1,24 @@
+import PySimpleGUI as sg
+
+# Define the layout
+layout = [
+    [sg.Text('Harga:', size=(10, 1)), sg.Input(key='-HARGA-', size=(20, 1))],
+    [sg.Text('Kuantitas:', size=(10, 1)), sg.Input(key='-KUANTITAS-', size=(20, 1))],
+    [sg.Button('Hitung Total')],
+    [sg.Text('Total:', size=(10, 1)), sg.Text('Rp.0.00', key='-TOTAL-', size=(20, 1))]
+]
+
+window = sg.Window('Kalkulator Harga', layout)
+while True:
+    event, values = window.read()
+    if event == sg.WIN_CLOSED:
+        break
+    if event == 'Hitung Total':
+        try:
+            harga = float(values['-HARGA-'])
+            kuantitas = int(values['-KUANTITAS-'])
+            total = harga * kuantitas
+            window['-TOTAL-'].update(f'Rp.{total:,.2f}')  # Update the total with proper formatting
+        except ValueError:
+            window['-TOTAL-'].update('Input tidak valid')  # Handle input errors
+window.close()
